@@ -76,6 +76,8 @@ alert(resultText);
 console.log(resultText);
 
 
+// ここより上を使う
+
 // 対応中
 // 表形式で表示
 console.log("集計結果\nアラートのポップアップとは表示形式が異なるので注意してください．\nこの表はコピーしてGoolgleドキュメントに貼り付けも可能です．\n");
