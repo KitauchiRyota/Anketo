@@ -1,3 +1,5 @@
+let n_topics = 3;
+
 // テーブル作成
 const table = document.createElement('table');
 table.border = '1';
@@ -19,20 +21,20 @@ const headerRow1 = document.createElement('tr');
 
 // 空セル（行番号列）
 let blank = document.createElement('th');
-blank.rowSpan = 2;
+blank.rowSpan = 3;
 setCellStyle(blank, true);
 headerRow1.appendChild(blank);
 
 // 難易度ヘッダー
 let th1 = document.createElement('th');
-th1.colSpan = 4;
+th1.colSpan = n_topics * 3; // 3段階評価
 th1.textContent = '難易度';
 setCellStyle(th1, true);
 headerRow1.appendChild(th1);
 
 // 満足度ヘッダー
 let th2 = document.createElement('th');
-th2.colSpan = 4;
+th2.colSpan = n_topics * 4; // 4段階評価
 th2.textContent = '満足度';
 setCellStyle(th2, true);
 headerRow1.appendChild(th2);
@@ -41,31 +43,69 @@ table.appendChild(headerRow1);
 
 // 2行目：トピックヘッダー
 const headerRow2 = document.createElement('tr');
-['topic1', 'topic2', 'topic3', 'topic4', 'topic1', 'topic2', 'topic3', 'topic4'].forEach(topic => {
+for (let i = 0; i < n_topics; i++) {
+    // 難易度のトピック
     const th = document.createElement('th');
-    th.textContent = topic;
+    th.colSpan = 3; // 3段階評価
+    th.textContent = `topic${i + 1}`;
     setCellStyle(th, true);
     headerRow2.appendChild(th);
-});
+}
+for (let i = 0; i < n_topics; i++) {
+    // 満足度のトピック
+    const th2 = document.createElement('th');
+    th2.colSpan = 4; // 4段階評価
+    th2.textContent = `topic${i + 1}`;
+    setCellStyle(th2, true);
+    headerRow2.appendChild(th2);
+}
 table.appendChild(headerRow2);
 
-// データ行（1〜4）
-for (let i = 1; i <= 4; i++) {
-    const row = document.createElement('tr');
-    const rowHeader = document.createElement('th');
-    rowHeader.textContent = i;
-    setCellStyle(rowHeader, true);
-    row.appendChild(rowHeader);
-
-    // 空のデータセルを8個
-    for (let j = 0; j < 8; j++) {
-        const td = document.createElement('td');
-        setCellStyle(td);
-        row.appendChild(td);
+// 3行目：評価ヘッダー
+const headerRow3 = document.createElement('tr');
+for (let i = 0; i < n_topics; i++) {
+    for (let j = 0; j < 3; j++) {
+        // 難易度の評価
+        const th = document.createElement('th');
+        th.textContent = `${j + 1}`;
+        setCellStyle(th, true);
+        headerRow3.appendChild(th);
     }
-
-    table.appendChild(row);
 }
 
+for (let i = 0; i < n_topics; i++) {
+    for (let j = 0; j < 4; j++) {
+        // 満足度の評価
+        const th = document.createElement('th');
+        th.textContent = `${j + 1}`;
+        setCellStyle(th, true);
+        headerRow3.appendChild(th);
+    }
+}
+table.appendChild(headerRow3);
+
+// データ行を1行だけ作成
+const row = document.createElement('tr');
+const rowHeader = document.createElement('th');
+rowHeader.textContent = "結果";
+setCellStyle(rowHeader, true);
+row.appendChild(rowHeader);
+
+// データセル
+for (let i = 0; i < (n_topics * 3 + n_topics * 4); i++) {
+    const td = document.createElement('td');
+    td.textContent = Math.floor(Math.random() * 100); // 0〜99のランダムな数値
+    setCellStyle(td);
+    row.appendChild(td);
+}
+
+table.appendChild(row);
+
+// ラッパーdivを作成して中央ぞろえ
+const wrapper = document.createElement('div');
+wrapper.style.textAlign = 'center';
+wrapper.style.marginTop = '40px'; // 上部の余白を追加
+wrapper.appendChild(table);
+
 // ページの先頭に追加
-document.body.insertBefore(table, document.body.firstChild);
+document.body.insertBefore(wrapper, document.body.firstChild);
