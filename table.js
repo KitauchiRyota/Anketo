@@ -91,12 +91,22 @@ rowHeader.textContent = "結果";
 setCellStyle(rowHeader, true);
 row.appendChild(rowHeader);
 
-// データセル
-for (let i = 0; i < (n_topics * 3 + n_topics * 4); i++) {
-    const td = document.createElement('td');
-    td.textContent = Math.floor(Math.random() * 100); // 0〜99のランダムな数値
-    setCellStyle(td);
-    row.appendChild(td);
+// 難易度からデータを追加
+for (let i = 0; i < n_topics; i++) {
+    for (let j = 0; j < 3; j++) {
+        const td = document.createElement('td');
+        td.textContent = diffs[i][j]
+        setCellStyle(td);
+        row.appendChild(td);
+    }
+}
+for (let i = 0; i < n_topics; i++) {
+    for (let j = 0; j < 4; j++) {
+        const td = document.createElement('td');
+        td.textContent = satis[i][j]
+        setCellStyle(td);
+        row.appendChild(td);
+    }
 }
 
 table.appendChild(row);
