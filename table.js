@@ -7,6 +7,8 @@ table.style.borderCollapse = 'collapse';
 table.style.marginBottom = '20px';
 table.style.fontSize = '13px';
 table.style.fontFamily = 'Arial, sans-serif';
+table.style.border = '1px solid #B7B7B7'; // グレーの枠線
+
 
 // スタイル調整用関数
 const setCellStyle = (cell, isHeader = false) => {
@@ -99,6 +101,7 @@ for (let i = 0; i < n_topics; i++) {
         const td = document.createElement('td');
         td.textContent = diffs[i][j]
         setCellStyle(td);
+        td.style.backgroundColor = (n_topics % 2 === 0) ? '#EFEFEF' : '#FFFFFF';
         row.appendChild(td);
     }
 }
@@ -107,6 +110,7 @@ for (let i = 0; i < n_topics; i++) {
         const td = document.createElement('td');
         td.textContent = satis[i][j]
         setCellStyle(td);
+        td.style.backgroundColor = (n_topics % 2 === 0) ? '#EFEFEF' : '#FFFFFF';
         row.appendChild(td);
     }
 }
