@@ -1,10 +1,12 @@
-let n_topics = 3;
+// let n_topics = 3;
 
 // テーブル作成
 const table = document.createElement('table');
 table.border = '1';
 table.style.borderCollapse = 'collapse';
 table.style.marginBottom = '20px';
+table.style.fontSize = '13px';
+table.style.fontFamily = 'Arial, sans-serif';
 
 // スタイル調整用関数
 const setCellStyle = (cell, isHeader = false) => {
