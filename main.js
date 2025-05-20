@@ -78,7 +78,8 @@ console.log(resultText);
 // テーブル作成
 const rtable = document.createElement('table');
 rtable.border = '1';
-rtable.style.borderCollapse = 'collapse';
+// rtable.style.borderCollapse = 'collapse';
+rtable.style.color = '#000000';
 rtable.style.marginBottom = '20px';
 rtable.style.fontSize = '13px';
 rtable.style.fontFamily = 'Arial, sans-serif';
@@ -87,9 +88,11 @@ rtable.style.border = '1px solid #B7B7B7'; // グレーの枠線
 
 // スタイル調整用関数
 const setCellStyle = (cell, isHeader = false) => {
-    cell.style.padding = '6px 10px';
-    cell.style.textAlign = 'center';
+    // cell.style.padding = '6px 10px';
+    // cell.style.textAlign = 'center';
     if (isHeader) {
+        cell.style.padding = '6px 10px';
+        cell.style.textAlign = 'center';
         cell.style.fontWeight = 'bold';
         cell.style.backgroundColor = '#f0f0f0';
     }
@@ -194,7 +197,7 @@ rtable.appendChild(row);
 
 // ラッパーdivを作成して中央ぞろえ
 const wrapper = document.createElement('div');
-wrapper.style.textAlign = 'center';
+// wrapper.style.textAlign = 'center';
 wrapper.style.marginTop = '40px'; // 上部の余白を追加
 wrapper.appendChild(rtable);
 
