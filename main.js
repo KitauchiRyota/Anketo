@@ -70,7 +70,7 @@ for (let index = 0; index < topics_dict.length; index++) {
     resultText += `満足度\n1：${satis[index][0]}\n2：${satis[index][1]}\n3：${satis[index][2]}\n4：${satis[index][3]}\n\n`;
 }
 
-alert(resultText);
+// alert(resultText);
 
 // コンソールログにも表示
 console.log(resultText);
@@ -203,3 +203,6 @@ wrapper.appendChild(rtable);
 
 // ページの先頭に追加
 document.body.insertBefore(wrapper, document.body.firstChild);
+
+
+alert("集計結果を表示しました．\n\nコンソールログにも表示しています．");
