@@ -205,4 +205,4 @@ wrapper.appendChild(rtable);
 document.body.insertBefore(wrapper, document.body.firstChild);
 
 
-alert("集計結果を表示しました．\n\nコンソールログにも表示しています．");
+alert("集計結果をページの先頭に表形式で出力しました．\n\nコンソールログにも表示しています．");
